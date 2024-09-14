@@ -7,3 +7,5 @@ INSERT INTO `cancion` (`id_cancion`, `nombre`, `genero`, `anio`) VALUES (NULL, '
 INSERT INTO `cancion` (`id_cancion`, `nombre`, `genero`, `anio`) VALUES (NULL, 'Shdows', 'Indie Pop', '2019-09-14'); -- Se agregaron datos a cancion
 
 INSERT INTO `artista` (`id_artista`, `nombre`) VALUES (NULL, 'Roosevelt'), (NULL, 'Isla de Caras') -- Se agregaron datos a artista
+
+ALTER TABLE `cancion` DROP FOREIGN KEY `cancion_ibfk_1`; ALTER TABLE `cancion` ADD CONSTRAINT `cancion_ibfk_1` FOREIGN KEY (`id_artista`) REFERENCES `artista`(`id_artista`) ON DELETE CASCADE ON UPDATE CASCADE; 
