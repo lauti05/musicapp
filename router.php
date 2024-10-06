@@ -12,5 +12,5 @@ $params = explode('/', $action);
 switch ($action){
     case 'home':
     default:
-        echo '<h1>Este es el home</h1>';
+        echo '<h1>This is the home page</h1>';
 }
