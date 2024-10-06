@@ -12,5 +12,5 @@ $params = explode('/', $action);
 switch ($action){
     case 'home':
     default:
-        var_dump(BASE_URL);
+        echo '<h1>Este es el home</h1>';
 }
