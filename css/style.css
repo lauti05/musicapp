@@ -1,0 +1,13 @@
+#song-details {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu{
+    background-color: aquamarine;
+}
+
+.menu.a {
+    text-decoration: none;
+    color:blue;
+}

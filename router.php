@@ -1,6 +1,7 @@
 <?php
-define('BASE_URL', $_SERVER['PHP_SELF']);
-require 'SongsController.php';
+require 'config.php';
+require 'controllers/SongsController.php';
+
 
 if (isset($_GET['action'])){
     $action = $_GET['action'];
@@ -10,11 +11,18 @@ if (isset($_GET['action'])){
 
 $params = explode('/', $action);
 
-switch ($action){
+switch ($params[0]){
     case 'home':
     default:
-        echo '<h1>This is the home page</h1>';
+        $controller = new SongsController();
+        $controller->showHome();
+        //var_dump(dirname($_SERVER['PHP_SELF']));
+        break;
     case 'view-songs':
         $controller = new SongsController();
         $controller->showSongs();
-}
+        break;
+    case 'view-song':
+        $controller = new SongsController();
+        $controller->showSong($params[1]);
+    }
