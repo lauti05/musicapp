@@ -25,4 +25,8 @@ switch ($params[0]){
     case 'view-song':
         $controller = new SongsController();
         $controller->showSong($params[1]);
+     case 'view-artists':
+        $controller = new ArtistsController();
+        $controller->showArtists();
+        break;
     }
