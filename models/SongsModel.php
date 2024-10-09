@@ -1,5 +1,5 @@
 <?php
-//require 'config.php';
+
 class SongsModel {
     private $db = DB;
     public function getSongs():array {

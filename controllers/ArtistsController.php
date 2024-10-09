@@ -18,7 +18,7 @@ class ArtistsController{ // Artists
     }
     public function showArtist($artist){
         if ($this->model->exists($artist)){
-            $artist = $this->model->getArtistByName($artist);
+            $artist = $this->model->getArtistById($artist);
             $this->view->viewArtist($artist);
         }else{
             $this->view->showError("The artist you're trying to find does not exist");

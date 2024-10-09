@@ -1,6 +1,7 @@
 <?php
 require 'config.php';
 require 'controllers/SongsController.php';
+require 'controllers/ArtistsController.php';
 
 
 if (isset($_GET['action'])){
@@ -16,7 +17,6 @@ switch ($params[0]){
     default:
         $controller = new SongsController();
         $controller->showHome();
-        //var_dump(dirname($_SERVER['PHP_SELF']));
         break;
     case 'view-songs':
         $controller = new SongsController();
@@ -25,8 +25,18 @@ switch ($params[0]){
     case 'view-song':
         $controller = new SongsController();
         $controller->showSong($params[1]);
-     case 'view-artists':
+        break;
+    case 'view-artists':
         $controller = new ArtistsController();
         $controller->showArtists();
+        break;
+    case 'view-artist':
+        $controller = new ArtistsController();
+        $controller->showArtist($params[1]);
+        break;
+
+    case 'login': 
+        $controller = new UserController();
+        $controller->showLogin();
         break;
     }

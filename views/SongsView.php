@@ -8,7 +8,7 @@ class SongsView {
         require_once 'templates/show-songs.phtml';
     }
 
-    public function viewSong($song){
+    public function viewSong($song, $artist){
         require_once 'templates/show-details.phtml';
 
     }
@@ -16,6 +16,4 @@ class SongsView {
     public function showError($errorMsg){
         require_once 'templates/error-page.phtml';
     }
-
-
 }

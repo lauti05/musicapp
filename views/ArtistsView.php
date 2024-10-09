@@ -7,7 +7,7 @@ class ArtistsView{
         require_once 'templates/show-artists.phtml';
     }
     public function viewArtist($artist){
-        require_once 'templates/show-details.phtml';
+        //require_once 'templates/show-details.phtml';
     }
     public function showError($errorMsg){
         require_once 'templates/error-page.phtml';

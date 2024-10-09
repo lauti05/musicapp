@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <?php require 'templates/header.phtml' ?>
-    <h2>Your songs</h2>
-    <ul>
-        <?php foreach($songList as $s): ?>
-            <li><a href="view-song/<?=$s->song_id?>"> <?php echo $s->song_name ?></a></li>
-        <?php endforeach ?>
-    </ul>
-</body>
-</html>
+<?php require 'templates/header.phtml' ?>
+<h2>Your songs</h2>
+<ul>
+    <?php foreach ($songList as $s): ?>
+        <li><a href="view-song/<?= $s->song_id ?>"> <?php echo $s->song_name ?></a></li>
+    <?php endforeach ?>
+</ul>

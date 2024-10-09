@@ -2,13 +2,17 @@
 
 require 'views/SongsView.php';
 require 'models/SongsModel.php';
+
 class SongsController{
     private $view;
     private $model;
+    private $artModel;
+
 
     public function __construct(){
         $this->view = new SongsView();
         $this->model = new SongsModel();
+        $this->artModel = new ArtistsModel();
     }
 
     public function showHome(){
@@ -23,7 +27,8 @@ class SongsController{
     public function showSong($id){
         if ($this->model->exists($id)){
             $song = $this->model->getSongById($id);
-            $this->view->viewSong($song);
+            $artist = $this->artModel->getArtistById($song->artist_id);
+            $this->view->viewSong($song, $artist);
         }else{
             $this->view->showError("The song you're trying to find does not exist");
         }
