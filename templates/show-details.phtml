@@ -1,8 +1,9 @@
-<?php require_once 'templates/header.phtml' ?>
-<div id="song-details">
-    <?php if (isset($song) && is_object($song)): ?>
-        <p>Name: <?= $song->song_name; ?></p>
-        <p>Genre: <?= $song->song_genre; ?></p>
-        <p>Year: <?= $song->song_year; ?></p>
-    <?php endif ?>
-</div>
+<?php if (is_object($song) && is_object($artist)): ?>
+    <div id="song-details">
+        <p>Artist: <?= $artist->artist_name ?></p>
+        <p>Name: <?= $song->song_name ?></p>
+        <p>Genre: <?= $song->song_genre ?></p>
+        <p>Year: <?= $song->song_year ?></p>
+    </div>
+<?php endif ?>
+

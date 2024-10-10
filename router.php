@@ -1,8 +1,12 @@
 <?php
-define('BASE_URL', $_SERVER['PHP_SELF']);
-require 'SongsController.php';
+require 'config.php';
+require 'app/controllers/SongsController.php';
+require 'app/controllers/ArtistsController.php';
+require 'app/controllers/UserController.php';
+require 'app/controllers/GeneralController.php';
 
-if (isset($_GET['action'])){
+
+if (!empty(($_GET['action']))){
     $action = $_GET['action'];
 }else {
     $action = 'home';
@@ -10,11 +14,34 @@ if (isset($_GET['action'])){
 
 $params = explode('/', $action);
 
-switch ($action){
+switch ($params[0]){
     case 'home':
     default:
-        echo '<h1>This is the home page</h1>';
+        $controller = new GeneralController(); //GeneralM, GeneralV, GeneralC ??
+        $controller->showHome();
+        break;
     case 'view-songs':
         $controller = new SongsController();
         $controller->showSongs();
-}
+        break;
+    case 'view-song':
+        $controller = new SongsController();
+        $controller->showSong($params[1]);
+        break;
+    case 'view-artists':
+        $controller = new ArtistsController();
+        $controller->showArtists();
+        break;
+    case 'view-artist':
+        $controller = new ArtistsController();
+        $controller->showArtist($params[1]);
+        break;
+    case 'login': 
+        $controller = new UserController();
+        $controller->showLogin();
+        break;
+    case 'auth': 
+        $controller = new UserController();
+        $controller->authenticateUser();
+        break;
+    }

@@ -1,0 +1,6 @@
+<h2>Your artists</h2>
+<ul>
+    <?php foreach ($artistList as $a): ?>
+        <li> <a href="view-artist/<?= $a->artist_id ?>"> <?php echo $a->artist_name ?> </a> </li>
+    <?php endforeach ?>
+</ul>
