@@ -1,7 +1,9 @@
 <?php
 
 class UserView {
+
     public function displayLogForm(){
-        require 'templates/login-form.phtml';
+        require_once 'templates/login-form.phtml';
     }
+
 }
