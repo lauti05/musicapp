@@ -5,18 +5,17 @@ require 'app/models/UserModel.php';
 class UserController{
     private $view;
     private $model;
-    private $genController;
     private $logged;
 
     public function __construct(){
         $this->view = new UserView();
         $this->model = new UserModel();
-        $this->genController = new GeneralController();
         $this->logged = false;
     }
 
+
+
     public function showLogin(){
-        $this->genController->showHeader();
         $this->view->displayLogForm();
     }
 

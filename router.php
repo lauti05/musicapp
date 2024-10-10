@@ -3,7 +3,7 @@ require 'config.php';
 require 'app/controllers/SongsController.php';
 require 'app/controllers/ArtistsController.php';
 require 'app/controllers/UserController.php';
-require 'app/controllers/GeneralController.php';
+
 
 
 if (!empty(($_GET['action']))){
@@ -17,7 +17,7 @@ $params = explode('/', $action);
 switch ($params[0]){
     case 'home':
     default:
-        $controller = new GeneralController(); //GeneralM, GeneralV, GeneralC ??
+        $controller = new ArtistsController(); //GeneralM, GeneralV, GeneralC ??
         $controller->showHome();
         break;
     case 'view-songs':
