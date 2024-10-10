@@ -2,7 +2,7 @@
 require 'app/views/SongsView.php';
 require 'app/models/SongsModel.php';
 
-class SongsController{
+class SongsController {
     private $view;
     private $model;
     private $artModel;
