@@ -3,6 +3,7 @@ require 'config.php';
 require 'app/controllers/SongsController.php';
 require 'app/controllers/ArtistsController.php';
 require 'app/controllers/UserController.php';
+require 'app/middlewares/session_auth_midw.php';
 
 
 
@@ -43,5 +44,9 @@ switch ($params[0]){
     case 'auth': 
         $controller = new UserController();
         $controller->authenticateUser();
+        break;
+    case 'delete-song':
+        checkLogStatus();
+        echo 'esto es delete-song';
         break;
     }

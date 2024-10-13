@@ -23,25 +23,25 @@ class UserController{
         if (!empty($_POST['username']) && !empty($_POST['pass'])){
             if ($this->model->exists($_POST['username'])){
                 //autenticar
-                $user = $this->model->getUser($_POST['username']);
-                if (password_verify($_POST['pass'],$user->user_password)){
+                $userFromDb = $this->model->getUser($_POST['username']);
+                if (password_verify($_POST['pass'],$userFromDb->user_password)){
                     $this->logged = true;
                     session_start();
-                    $_SESSION['USER_ID'] = $user->user_id;
-                    $_SESSION['USERNAME'] = $user->user_name;
+                    $_SESSION['USER_ID'] = $userFromDb->user_id;
+                    $_SESSION['USERNAME'] = $userFromDb->user_name;
                     $_SESSION['LAST_ACTIVITY'] = time();
-                    //header('Location: home');
+                    header('Location: home');
                 }
                 else{
-                    echo "contraseña incorrecta";
+                    echo "contraseña incorrecta"; //implementar vista
                 }
 
             }else{
-                echo 'el usuario no existe';
+                echo 'el usuario no existe'; //implementar vista
             }
         }
         else{
-            echo 'completa los campos faltantes';
+            echo 'completa los campos faltantes'; //implementar vista
         }   
     }
 
