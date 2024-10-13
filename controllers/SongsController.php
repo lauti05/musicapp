@@ -1,29 +1,34 @@
 <?php
-require 'app/views/SongsView.php';
-require 'app/models/SongsModel.php';
 
-class SongsController {
+require 'views/SongsView.php';
+require 'models/SongsModel.php';
+class SongsController{
     private $view;
     private $model;
-    private $artModel;
-
 
     public function __construct(){
         $this->view = new SongsView();
         $this->model = new SongsModel();
-        $this->artModel = new ArtistsModel();
+    }
+
+    public function showHome(){
+        $this->view->displayHome();
     }
 
     public function showSongs(){
         $songList = $this->model->getSongs();
-        $this->view->listSongs($songList);
+        if (!empty($songList)){
+            usort($songList, function($a, $b){ return strcasecmp($a->song_name, $b->song_name);});
+            $this->view->listSongs($songList);
+        }else{
+            $this->view->showError('No songs to show');
+        }
     }
 
     public function showSong($id){
         if ($this->model->exists($id)){
             $song = $this->model->getSongById($id);
-            $artist = $this->artModel->getArtistById($song->artist_id);
-            $this->view->viewSong($song, $artist);
+            $this->view->viewSong($song);
         }else{
             $this->view->showError("The song you're trying to find does not exist");
         }
