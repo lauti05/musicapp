@@ -14,7 +14,9 @@
             <li><a href="home">Home</a></li>
             <li><a href="view-songs">My songs</a></li>
             <li><a href="view-artists">My artists</a></li>
-            <li><a href="login">Login</a></li> <!-- hacer script para mostrarlo solo cuando no este logeado-->
+            <?php if (getLogStatus() == false): ?>
+            <li><a href="login">Login</a></li> 
+            <?php endif ?>
         </ul>
     </nav>
 </body>

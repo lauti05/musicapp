@@ -1,5 +1,6 @@
 <?php
 require 'config.php';
+require 'app/controllers/GeneralController.php';
 require 'app/controllers/SongsController.php';
 require 'app/controllers/ArtistsController.php';
 require 'app/controllers/UserController.php';
@@ -7,18 +8,18 @@ require 'app/middlewares/session_auth_midw.php';
 
 
 
-if (!empty(($_GET['action']))){
+if (!empty(($_GET['action']))) {
     $action = $_GET['action'];
-}else {
+} else {
     $action = 'home';
 }
 
 $params = explode('/', $action);
 
-switch ($params[0]){
+switch ($params[0]) {
     case 'home':
     default:
-        $controller = new ArtistsController(); //GeneralM, GeneralV, GeneralC ??
+        $controller = new GeneralController();
         $controller->showHome();
         break;
     case 'view-songs':
@@ -29,6 +30,11 @@ switch ($params[0]){
         $controller = new SongsController();
         $controller->showSong($params[1]);
         break;
+    case 'delete-song':
+        checkLogStatus();
+        $controller = new SongsController();
+        $controller->deleteSong($params[1]);
+        break;
     case 'view-artists':
         $controller = new ArtistsController();
         $controller->showArtists();
@@ -37,16 +43,12 @@ switch ($params[0]){
         $controller = new ArtistsController();
         $controller->showArtist($params[1]);
         break;
-    case 'login': 
+    case 'login':
         $controller = new UserController();
         $controller->showLogin();
         break;
-    case 'auth': 
+    case 'auth':
         $controller = new UserController();
         $controller->authenticateUser();
         break;
-    case 'delete-song':
-        checkLogStatus();
-        echo 'esto es delete-song';
-        break;
-    }
+}

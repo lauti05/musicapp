@@ -1,5 +1,4 @@
 <?php 
-
 class GeneralView {
 
     public function displayHeader(){

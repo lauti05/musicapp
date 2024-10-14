@@ -5,12 +5,10 @@ require 'app/models/UserModel.php';
 class UserController{
     private $view;
     private $model;
-    private $logged;
 
     public function __construct(){
         $this->view = new UserView();
         $this->model = new UserModel();
-        $this->logged = false;
     }
 
 
@@ -25,7 +23,6 @@ class UserController{
                 //autenticar
                 $userFromDb = $this->model->getUser($_POST['username']);
                 if (password_verify($_POST['pass'],$userFromDb->user_password)){
-                    $this->logged = true;
                     session_start();
                     $_SESSION['USER_ID'] = $userFromDb->user_id;
                     $_SESSION['USERNAME'] = $userFromDb->user_name;
@@ -44,10 +41,5 @@ class UserController{
             echo 'completa los campos faltantes'; //implementar vista
         }   
     }
-
-    public function isLogged(){
-        return $this->logged;
-    }
-
 
 }
