@@ -40,13 +40,10 @@ switch ($params[0]) {
         $controller = new SongsController();
         $controller->showEditSong($params[1]);
         break;
-    case 'add-song': 
+    case 'add-song':
+        checkLogStatus();
         $controller = new SongsController();
         $controller->showAddForm();
-        break;
-    case 'get-add-data':
-        $controller = new SongsController();
-        $controller->addSong();
         break;
     case 'view-artists':
         $controller = new ArtistsController();
@@ -64,8 +61,12 @@ switch ($params[0]) {
         $controller = new UserController();
         $controller->authenticateUser();
         break;
-    case 'update-song': 
+    case 'update-song':
         $controller = new SongsController();
         $controller->updateSong($params[1]);
+        break;
+    case 'get-add-data':
+        $controller = new SongsController();
+        $controller->addSong();
         break;
 }

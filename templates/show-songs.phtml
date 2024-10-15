@@ -9,4 +9,6 @@
     <?php endforeach ?>
 </ul>
 
-<a href="add-song"><button>New Song</button></a>
+<?php if (getLogStatus() == true):?>
+    <a href="add-song"><button>New Song</button></a>
+<?php endif ?>
