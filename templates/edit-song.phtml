@@ -1,0 +1,6 @@
+<form action="<?=BASE_URL?>update-song/<?= $song->song_id ?>" method="POST">
+    Name: <input type="text" name="s_name" value="<?= $song->song_name ?>" required>
+    Genre: <input type="text" name="s_genre" value="<?= $song->song_genre ?>" required>
+    Year: <input type="text" name="s_year" value="<?= $song->song_year ?>" required>
+    <input type="submit" value="Save">
+</form>

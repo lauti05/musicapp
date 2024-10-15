@@ -7,7 +7,6 @@ class SongsController {
     private $model;
     private $artModel;
 
-
     public function __construct(){
         $this->view = new SongsView();
         $this->model = new SongsModel();
@@ -16,6 +15,7 @@ class SongsController {
 
     public function showSongs(){
         $songList = $this->model->getSongs();
+        usort($songList, function($a, $b){ return strcasecmp($a->song_name, $b->song_name);});
         $this->view->listSongs($songList);
     }
 
@@ -27,5 +27,45 @@ class SongsController {
         }else{
             $this->view->showError("The song you're trying to find does not exist");
         }
+    }
+
+    public function deleteSong($id){
+        if ($this->model->exists($id)){
+            $this->model->removeSong($id);
+            header('Location:'.BASE_URL.'view-songs');
+        }else{
+            header('Location:'.BASE_URL.'home');
+        }
+    }
+
+    public function showEditSong($id){
+        if ($this->model->exists($id)){
+            $song = $this->model->getSongById($id);
+            $this->view->showEditForm($song);
+        }else{
+            header('Location:'.BASE_URL.'home');
+        }
+    }
+
+    public function updateSong($id){
+        $newName = $_POST['s_name'];
+        $newGenre = $_POST['s_genre'];
+        $newYear = (int) $_POST['s_year'];
+        $this->model->updateSong($id,$newName, $newGenre, $newYear);
+        header('Location: '.BASE_URL.'view-songs');
+    }
+
+    public function showAddForm(){
+        $this->view->displayAddForm($this->artModel->getArtists());
+    }
+
+    public function addSong(){
+        $newSong = new stdClass();
+        $newSong->artistId = $_POST['artist'];
+        $newSong->name = htmlspecialchars(trim($_POST['s_name']));
+        $newSong->genre = htmlspecialchars(trim($_POST['s_genre']));
+        $newSong->year = (int) htmlspecialchars(trim($_POST['s_year']));
+        $this->model->addSong($newSong);
+        header('Location: '.BASE_URL.'view-songs');
     }
 }

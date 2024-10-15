@@ -1,34 +1,33 @@
-/* HEADER */
-.menu{
-    background-color: #1c6f47f0;}/*
-    display: flex;
-}
-
-*/.menu > ul {
-    list-style: none;
-}/*
-
-.menu > ul > li {
-    /*display: flex;
-}*/
-.menu > ul a {
-    color: rgb(19, 15, 15);
+/* GENERAL */
+a {
     text-decoration: none;
+    color: #0E467A;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+
+/* END GENERAL */
+
+
+/* HEADER */
+
+
 /* END HEADER */
 
 
 /* SHOW-SONGS */
-#songlist a {
-    color: black;
-}
+
 /* END SHOW-SONGS */
 
 
 /* SHOW-DETAILS */
-#song-details {
-    margin-left: 2%;
-}
+
 /* END SHOW-DETAILS */
 
 
