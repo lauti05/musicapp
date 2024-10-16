@@ -6,6 +6,7 @@ require 'app/controllers/ArtistsController.php';
 require 'app/controllers/UserController.php';
 require 'app/middlewares/session_auth_midw.php';
 
+define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
 
 if (!empty(($_GET['action']))) {
@@ -31,24 +32,38 @@ switch ($params[0]) {
         $controller->showSong($params[1]);
         break;
     case 'delete-song':
-        if (isLogged()){
+        if (isLogged()) {
             $controller = new SongsController();
             $controller->deleteSong($params[1]);
-            break;}
+            break;
+        }
     case 'edit-song':
-        if (isLogged()){
+        if (isLogged()) {
             $controller = new SongsController();
             $controller->showEditSong($params[1]);
-            break;}
+            break;
+        }else {
+            header('Location: ' . BASE_URL . 'home');
+            break;
+        }
     case 'add-song':
-        if (isLogged()){
+        if (isLogged()) {
             $controller = new SongsController();
             $controller->showAddForm();
-            break;}
+            break;
+        }else {
+            header('Location: ' . BASE_URL . 'home');
+            break;
+        }
     case 'login':
-        $controller = new UserController();
-        $controller->showLogin(' ');
-        break;
+        if (!isLogged()) {
+            $controller = new UserController();
+            $controller->showLogin(' ');
+            break;
+        }else {
+            header('Location: ' . BASE_URL . 'home');
+            break;
+        }
     case 'view-artists':
         $controller = new ArtistsController();
         $controller->showArtists();

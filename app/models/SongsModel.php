@@ -1,7 +1,10 @@
 <?php
 
 class SongsModel {
-    private $db = DB;
+    private $db;
+    public function __construct(){
+        $this->db = new PDO(DSN, USERNAME, '');
+    }
     public function getSongs():array{
         $query = $this->db->prepare("SELECT * FROM song;");
         $query->execute();
