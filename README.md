@@ -16,4 +16,4 @@ Plataforma similar a Spotify o Youtube Music, en donde se pueden visualizar, agr
   
   
 >[!NOTE]
->El unico usuario registrado y válido para las funcionalidades de ABM es ___webadmin___ con la contraseña __admin__ .
+>El unico usuario registrado y válido para las funcionalidades de ABM es ___webadmin___ con la contraseña __admin__
