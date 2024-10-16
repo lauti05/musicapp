@@ -17,10 +17,13 @@ class SongsView {
     }
 
     public function showEditForm($song){
+        require_once 'templates/header.phtml';
         require_once 'templates/edit-song.phtml';
     }
 
     public function displayAddForm($artistList){
+        require_once 'templates/header.phtml';
         require_once 'templates/add-song-form.phtml';
+        
     }
 }

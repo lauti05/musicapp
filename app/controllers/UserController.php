@@ -13,11 +13,17 @@ class UserController{
 
 
 
-    public function showLogin(){
-        $this->view->displayLogForm();
+    public function showLogin($error){
+        if ($error == ' ')
+            $this->view->displayLogForm();
+        else{
+            $this->view->displayLogForm();
+            $this->view->showError($error);
+        }
     }
 
     public function authenticateUser(){
+        $error = ' ';
         if (!empty($_POST['username']) && !empty($_POST['pass'])){
             if ($this->model->exists($_POST['username'])){
                 //autenticar
@@ -27,19 +33,17 @@ class UserController{
                     $_SESSION['USER_ID'] = $userFromDb->user_id;
                     $_SESSION['USERNAME'] = $userFromDb->user_name;
                     $_SESSION['LAST_ACTIVITY'] = time();
-                    header('Location: home');
+                    header('Location: home'); 
+                    return;
                 }
-                else{
-                    echo "contraseña incorrecta"; //implementar vista
-                }
-
-            }else{
-                echo 'el usuario no existe'; //implementar vista
-            }
-        }
-        else{
-            echo 'completa los campos faltantes'; //implementar vista
-        }   
+                else
+                    $error = "Wrong password";
+            }else
+                $error = "The user doesn't exist";       
+        }else
+            $error = "Fill the blanks"; //buscar sinonimos
+        
+        $this->showLogin($error);
     }
 
 }

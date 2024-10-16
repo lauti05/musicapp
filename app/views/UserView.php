@@ -7,4 +7,8 @@ class UserView {
         require_once 'templates/login-form.phtml';
     }
 
+    public function showError($errMsg){
+        require 'templates/login-error.phtml';
+    }
+
 }

@@ -1,16 +1,10 @@
 <?php 
 
 session_start();
-function checkLogStatus(){
-    if (empty($_SESSION['USER_ID'])){
-        header('Location: login');
-    }
+function isLogged(){
+    if (empty($_SESSION['USER_ID']))
+        return false;
+    else 
+        return true;
 }
 
-function getLogStatus(){
-    if (empty($_SESSION['USER_ID'])){
-        return false;
-    }else{
-        return true;
-    }
-}

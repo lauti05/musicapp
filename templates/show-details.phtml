@@ -5,7 +5,7 @@
         <p>Genre: <?= $song->song_genre ?></p>
         <p>Year: <?= $song->song_year ?></p>
     </div>
-    <?php if (getLogStatus() == true): ?>
+    <?php if (isLogged()): ?>
         <a href="edit-song/<?=$song->song_id?>"><button>Edit</button></a>
     <?php endif ?>
 <?php endif ?>

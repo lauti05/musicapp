@@ -4,7 +4,6 @@ require 'app/views/GeneralView.php';
 class GeneralController {
     private $view;
 
-
     public function __construct(){
         $this->view = new GeneralView();
     }

@@ -3,12 +3,12 @@
     <?php foreach ($songList as $s): ?>
         <li><a href="view-song/<?=$s->song_id?>"> <?php echo $s->song_name ?> </a></li>
         
-        <?php if (getLogStatus() == true): //si el usuario esta logueado muestra el boton?>
+        <?php if (isLogged()): //si el usuario esta logueado muestra el boton?>
             <a href="delete-song/<?= $s->song_id ?>"><button>Delete</button></a> 
         <?php endif ?>
     <?php endforeach ?>
 </ul>
 
-<?php if (getLogStatus() == true):?>
+<?php if (isLogged()):?>
     <a href="add-song"><button>New Song</button></a>
 <?php endif ?>
