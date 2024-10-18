@@ -12,10 +12,6 @@ class ArtistsController{ // Artists
         $this->model = new ArtistsModel();
     }
 
-    public function showHome(){
-        $this->view->displayHome();
-    }
-
     public function showArtists(){ 
         $artistList = $this->model->getArtists();
         $this->view->listArtists($artistList);

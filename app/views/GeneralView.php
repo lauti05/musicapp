@@ -1,5 +1,4 @@
 <?php 
-
 class GeneralView {
 
     public function displayHeader(){
@@ -8,9 +7,5 @@ class GeneralView {
 
     public function displayHome(){
         require 'templates/home.phtml';
-    }
-
-    public function displayFooter(){
-        require 'templates/footer.phtml';
     }
 }

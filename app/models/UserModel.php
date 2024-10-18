@@ -1,6 +1,10 @@
 <?php
 class UserModel {
-    private $db = DB;
+    private $db;
+
+    public function __construct(){
+        $this->db = new PDO(DSN, USERNAME, '');
+    }
     public function exists($username){
         $query = $this->db->prepare("SELECT EXISTS (SELECT 1 FROM user WHERE user_name = :username)");
         $query->bindParam(':username', $username);

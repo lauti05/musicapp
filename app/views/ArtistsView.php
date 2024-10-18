@@ -2,6 +2,7 @@
 class ArtistsView{
     
     public function displayHome(){
+        require_once 'templates/header.phtml';
         require_once 'templates/home.phtml';
     }
     
