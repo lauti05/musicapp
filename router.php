@@ -32,9 +32,12 @@ switch ($params[0]) {
         $controller->showSong($params[1]);
         break;
     case 'delete-song':
-        if (isLogged()) {
+        if (isLogged()) { //estos if-else estan en el router porque tienen mas sentido acá que crear un controlador e invocar un metodo para recién después chequear el login
             $controller = new SongsController();
             $controller->deleteSong($params[1]);
+            break;
+        }else{
+            header('Location: '.BASE_URL.'home');
             break;
         }
     case 'edit-song':
@@ -42,8 +45,8 @@ switch ($params[0]) {
             $controller = new SongsController();
             $controller->showEditSong($params[1]);
             break;
-        }else {
-            header('Location: ' . BASE_URL . 'home');
+        }else{
+            header('Location: '.BASE_URL.'home');
             break;
         }
     case 'add-song':
@@ -51,8 +54,8 @@ switch ($params[0]) {
             $controller = new SongsController();
             $controller->showAddForm();
             break;
-        }else {
-            header('Location: ' . BASE_URL . 'home');
+        }else{
+            header('Location: '.BASE_URL.'home');
             break;
         }
     case 'login':
@@ -61,9 +64,13 @@ switch ($params[0]) {
             $controller->showLogin(' ');
             break;
         }else {
-            header('Location: ' . BASE_URL . 'home');
+            header('Location: '.BASE_URL.'home');
             break;
         }
+    case 'auth':
+        $controller = new UserController();
+        $controller->authenticateUser();
+        break;
     case 'view-artists':
         $controller = new ArtistsController();
         $controller->showArtists();
@@ -71,9 +78,5 @@ switch ($params[0]) {
     case 'view-artist':
         $controller = new ArtistsController();
         $controller->showArtist($params[1]);
-        break;
-    case 'auth':
-        $controller = new UserController();
-        $controller->authenticateUser();
         break;
 }
