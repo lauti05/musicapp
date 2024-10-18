@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="css/style.css">
+
+<form action="get-add-data" method="POST">
+    <select name="artist" required>
+        <option value=""></option>
+        <?php foreach ($artistList as $artist): ?>
+            <option value="<?= $artist->artist_id ?>"><?= $artist->artist_name ?></option>
+        <?php endforeach ?>
+    </select>
+    <input type="text" name="s_name" placeholder="Name" required>
+    <input type="text" name="s_genre" placeholder="Genre" required>
+    <input type="text" name="s_year" placeholder="Year" pattern="\d{4}" required>
+    <input type="submit" value="Add">
+    <a href="view-songs"><input type="button" value="Cancel"></a>
+</form>
+

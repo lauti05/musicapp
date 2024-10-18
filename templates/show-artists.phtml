@@ -1,0 +1,23 @@
+<h2>Your artists</h2>
+<ul>
+<?php require './templates/add-artist-form.phtml'; ?>
+
+<ul>
+    <?php if (!empty($artists)): ?>
+        <?php foreach ($artists as $artist): ?>
+            <li>
+                <span><?= htmlspecialchars($artist->artist_name); ?></span>
+                <div>
+                    <a href="view-artist/<?= $artist->artist_id ?>">View</a>
+                    <a href="editArtist/<?= $artist->artist_id ?>">Edit</a>
+                    <form action="delete/<?= $artist->artist_id ?>" method="POST">
+                        <button type="submit">Delete artist</button>
+                    </form>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <li>The artist is not available.</li>
+    <?php endif; ?>
+</ul>
+</ul>

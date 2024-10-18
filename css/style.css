@@ -1,0 +1,33 @@
+/* GENERAL */
+a {
+    text-decoration: none;
+    color: #0E467A;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+
+/* END GENERAL */
+
+
+/* HEADER */
+
+
+/* END HEADER */
+
+
+/* SHOW-SONGS */
+
+/* END SHOW-SONGS */
+
+
+/* SHOW-DETAILS */
+
+/* END SHOW-DETAILS */
+
+

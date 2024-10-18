@@ -1,0 +1,10 @@
+<form action="<?= BASE_URL ?>updateArtist/" method="POST">
+    <input type="hidden" name="artist_id" value="<?= htmlspecialchars($artist->artist_id); ?>">
+    <div>
+        <label for="artist_name">Artist name</label>
+        <input type="text" id="artist_name" name="artist_name" value="<?= htmlspecialchars($artist->artist_name); ?>" required>
+    </div>
+    <div>
+        <button type="submit">Update artist</button>
+    </div>
+</form>

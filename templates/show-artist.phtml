@@ -1,0 +1,17 @@
+<?php if (is_object($artistbyid)): ?>
+
+    <div id="artist-details">
+        <p>Artist: <?= $artistbyid->artist_name ?></p>
+    </div>
+    <?php endif ?>
+    <div>
+        <?php if(isset($songsbyArtist) && !empty ($songsbyArtist)): ?>
+            <?php foreach ($songsbyArtist as $song): ?>
+                <p><?php echo ($song->song_name) ?></p>
+                <?= var_dump($artistbyid->artist_img) ?>
+                <img src="<?php echo $artistbyid->artist_img?>" alt="imagen">
+            <?php endforeach ?>
+ </div>
+ <?php else : ?>
+    <p>error</p>
+    <?php endif ?>
