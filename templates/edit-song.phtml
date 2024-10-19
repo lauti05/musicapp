@@ -2,5 +2,8 @@
     Name: <input type="text" name="s_name" value="<?= $song->song_name ?>" required>
     Genre: <input type="text" name="s_genre" value="<?= $song->song_genre ?>" required>
     Year: <input type="text" name="s_year" value="<?= $song->song_year ?>" pattern="\d{4}" required>
-    <input type="submit" value="Save">
+    <div id="edit-btns-container">
+        <input type="submit" value="Save">
+        <a href="view-song/<?=$song->song_id?>"><input type="button" value="Cancel"></a>
+    </div>
 </form>

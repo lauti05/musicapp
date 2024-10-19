@@ -4,13 +4,13 @@
         <li><a href="view-song/<?=$s->song_id?>"> <?php echo $s->song_name ?> </a></li>
         
         <?php if (isLogged()): //si el usuario esta logueado muestra el boton?>
-            <a href="delete-song/<?= $s->song_id ?>"><button>Delete</button></a> 
+            <a href="delete-song/<?= $s->song_id ?>"><input type="button" value="Delete"></a> 
         <?php endif ?>
     <?php endforeach ?>
 </ul>
 
 <?php if (isLogged()):?>
     <div id="songlist-btns-container">    
-        <a href="add-song"><button>New Song</button></a>
+        <a href="add-song"><input type="button" value="New Song"></a>
     </div>
 <?php endif ?>
