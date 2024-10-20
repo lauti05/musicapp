@@ -7,8 +7,8 @@
         </div>
         <?php if (isLogged()): ?>
         <div id="details-btns-container">
-            <a href="edit-song/<?=$song->song_id?>"><button>Edit</button></a>
-            <a href="view-songs"><button>Back</button></a>   
+            <a href="edit-song/<?=$song->song_id?>"><input type="button" value="Edit"></a>
+            <a href="view-songs"><input type="button" value="Back"></a>   
         </div>         
         <?php endif ?>
 <?php endif ?>
