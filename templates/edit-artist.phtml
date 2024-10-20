@@ -1,4 +1,4 @@
-<?= require './templates/header.phtml';?>
+<?php require './templates/header.phtml';?>
 <form action="<?=BASE_URL?>update-artist" method="POST">
     <div>
         <input type="hidden" name="artist_id" value="<?= htmlspecialchars($artist->artist_id); ?>">
