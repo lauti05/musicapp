@@ -48,12 +48,4 @@ class SongsModel {
         $query->bindParam(':song_year', $song->year);
         $query->execute();
     }
-
-    public function songsbyArtist($artist_id){
-        $query = $this->db->prepare ('SELECT * FROM song WHERE artist_id = ?');
-        $query->execute([$artist_id]);
-        $songsbyArtist = $query->fetchAll(PDO::FETCH_OBJ);
-        return $songsbyArtist;
-    }
-   
 }

@@ -11,6 +11,8 @@ class UserController{
         $this->model = new UserModel();
     }
 
+
+
     public function showLogin($error){
         if ($error == ' ')
             $this->view->displayLogForm();
@@ -19,7 +21,7 @@ class UserController{
             $this->view->showError($error);
         }
     }
-    
+
     public function authenticateUser(){
         $error = ' ';
         if (!empty($_POST['username']) && !empty($_POST['pass'])){
@@ -39,15 +41,9 @@ class UserController{
             }else
                 $error = "The user doesn't exist";       
         }else
-            $error = "Fill in the blanks"; //buscar sinonimos
+            $error = "Fill the blanks"; //buscar sinonimos
         
         $this->showLogin($error);
     }
 
-    public function logout(){
-        session_start();
-        session_destroy();
-        header('Location:' . BASE_URL . 'home');
-    }
 }
-
