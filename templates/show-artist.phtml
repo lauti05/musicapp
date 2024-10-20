@@ -1,20 +1,26 @@
-<?= require './templates/header.phtml';?>
-<div>
-     <div>
-        <?php if (!empty($artistbyid)): ?>
-            <h1><?= $artistbyid->artist_name; ?></h1>
-            <img src="<?php echo($artistbyid->artist_img); ?>" alt="imagen">
-            </div>
-            <?php else: ?>
-                <p>No se encontraron detalles para este artista.</p>
-            <?php endif; ?>
-            <?php foreach ($songsbyArtist as $song): ?>
-                <h3><?= htmlspecialchars($song->song_name) ?></h3>
-            <?php endforeach ;?>
-        <div>
-            <a href="edit-artist/<?= $artistbyid->artist_id?>"><button>Edit</button></a>
-            <a href="view-artists"><button>Back</button></a>
-        </div>         
+<?= require './templates/header.phtml'; ?>
 
+<div class="container mt-5">
+    <?php if (!empty($artistbyid)): ?>
+        <div class="text-center mb-4">
+            <h1><?= htmlspecialchars($artistbyid->artist_name); ?></h1>
+            <img src="<?= htmlspecialchars($artistbyid->artist_img); ?>" alt="Imagen de <?= htmlspecialchars($artistbyid->artist_name); ?>" class="img-fluid">
         </div>
-    </div>
+
+        <h3>Songs by <?= htmlspecialchars($artistbyid->artist_name); ?></h3>
+        <ul class="list-group mb-4">
+            <?php foreach ($songsbyArtist as $song): ?>
+                <li class="list-group-item"><?= htmlspecialchars($song->song_name); ?></li>
+            <?php endforeach; ?>
+        </ul>
+
+        <div class="d-flex justify-content-between">
+            <a href="edit-artist/<?= $artistbyid->artist_id ?>" class="btn btn-warning">Edit</a>
+            <a href="view-artists" class="btn btn-secondary">Back</a>
+        </div>
+    <?php else: ?>
+        <p class="text-center">No se encontraron detalles para este artista.</p>
+    <?php endif; ?>
+</div>
+
+<?= require './templates/footer.phtml'; ?>
