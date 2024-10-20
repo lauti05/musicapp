@@ -8,4 +8,6 @@ class GeneralView {
     public function displayHome(){
         require 'templates/home.phtml';
     }
+
+    
 }

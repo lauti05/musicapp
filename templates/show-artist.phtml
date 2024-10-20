@@ -1,0 +1,20 @@
+<?= require './templates/header.phtml';?>
+<div>
+     <div>
+        <?php if (!empty($artistbyid)): ?>
+            <h1><?= $artistbyid->artist_name; ?></h1>
+            <img src="<?php echo($artistbyid->artist_img); ?>" alt="imagen">
+            </div>
+            <?php else: ?>
+                <p>No se encontraron detalles para este artista.</p>
+            <?php endif; ?>
+            <?php foreach ($songsbyArtist as $song): ?>
+                <h3><?= htmlspecialchars($song->song_name) ?></h3>
+            <?php endforeach ;?>
+        <div>
+            <a href="edit-artist/<?= $artistbyid->artist_id?>"><button>Edit</button></a>
+            <a href="view-artists"><button>Back</button></a>
+        </div>         
+
+        </div>
+    </div>
