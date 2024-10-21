@@ -80,23 +80,41 @@ switch ($params[0]) {
         $controller->showArtistById($params[1]);
         break;
     case 'add-artist': //done
-        $controller = new ArtistsController();
-        $controller->addArtist();
-        break;
+        if (!isLogged()) {
+            $controller = new ArtistsController();
+            $controller->addArtist();
+            break;}
+        else {
+            header('Location: ' . BASE_URL . 'home');
+            break;
+        }
+        
     case 'delete-artist': //donde
-        $controller = new ArtistsController();
-        $controller->deleteArtist($params[1]);
-        break;
+        if (!isLogged()) {
+            $controller = new ArtistsController();
+            $controller->deleteArtist($params[1]);
+            break;}
+        else {
+            header('Location: ' . BASE_URL . 'home');
+            break;
+        }
     case 'edit-artist': //done
-        $controller = new ArtistsController();
-        $artist_id = $params[1];
-        $controller->editArtist($artist_id);
-        break;
+        if (!isLogged()) {
+            $controller = new ArtistsController();
+            $artist_id = $params[1];
+            $controller->editArtist($artist_id);
+            break;}
+        else {
+            header('Location: ' . BASE_URL . 'home');
+            break;
+        }
     case 'logout':
-        $controller = new UserController();
-        $controller->logout();
-        break;
-
-
-
+        if (isLogged()) {
+            $controller = new UserController();
+            $controller->logout();
+            break;}
+        else {
+            header('Location: ' . BASE_URL . 'home');
+            break;
+        }
 }
