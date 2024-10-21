@@ -36,8 +36,8 @@ switch ($params[0]) {
             $controller = new SongsController();
             $controller->deleteSong($params[1]);
             break;
-        }else{
-            header('Location: '.BASE_URL.'home');
+        } else {
+            header('Location: ' . BASE_URL . 'home');
             break;
         }
     case 'edit-song':
@@ -45,8 +45,8 @@ switch ($params[0]) {
             $controller = new SongsController();
             $controller->showEditSong($params[1]);
             break;
-        }else{
-            header('Location: '.BASE_URL.'home');
+        } else {
+            header('Location: ' . BASE_URL . 'home');
             break;
         }
     case 'add-song':
@@ -54,8 +54,8 @@ switch ($params[0]) {
             $controller = new SongsController();
             $controller->showAddForm();
             break;
-        }else{
-            header('Location: '.BASE_URL.'home');
+        } else {
+            header('Location: ' . BASE_URL . 'home');
             break;
         }
     case 'login':
@@ -63,20 +63,40 @@ switch ($params[0]) {
             $controller = new UserController();
             $controller->showLogin(' ');
             break;
-        }else {
-            header('Location: '.BASE_URL.'home');
+        } else {
+            header('Location: ' . BASE_URL . 'home');
             break;
         }
     case 'auth':
         $controller = new UserController();
         $controller->authenticateUser();
         break;
-    case 'view-artists':
+    case 'view-artists': //done
         $controller = new ArtistsController();
         $controller->showArtists();
         break;
-    case 'view-artist':
+    case 'view-artist': //done
         $controller = new ArtistsController();
-        $controller->showArtist($params[1]);
+        $controller->showArtistById($params[1]);
         break;
+    case 'add-artist': //done
+        $controller = new ArtistsController();
+        $controller->addArtist();
+        break;
+    case 'delete-artist': //donde
+        $controller = new ArtistsController();
+        $controller->deleteArtist($params[1]);
+        break;
+    case 'edit-artist': //done
+        $controller = new ArtistsController();
+        $artist_id = $params[1];
+        $controller->editArtist($artist_id);
+        break;
+    case 'logout':
+        $controller = new UserController();
+        $controller->logout();
+        break;
+
+
+
 }

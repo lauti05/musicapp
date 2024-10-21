@@ -34,10 +34,13 @@
                         </a>
                         
                     </li>
+
                     <?php if (!isLogged()): ?>
                         <li class="nav-item">
                             <a class="nav-link" aria-disabled="true" href="login">Login</a>
                         </li>
+                        <?php else:?>
+                            <a class="nav-link" aria-disabled="true" href="logout">Logout</a>
                     <?php endif ?>
                 </ul>
             </div>

@@ -1,0 +1,11 @@
+<?php require './templates/header.phtml';?>
+<form action="add-artist" method="POST">
+    <h2 >Add new artist</h2>
+        <div>
+            <label for="artist_name">Artist name</label>
+            <input id="artist_name" type="text" name="artist_name" required>
+            <label for="artist_img">Artist image</label>
+            <input id="artist_img" type="text" name="artist_img" required>
+        </div>
+        <button type="submit">Add artist</button>
+</form>
