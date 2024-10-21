@@ -1,0 +1,55 @@
+a {
+    text-decoration: none;
+    color: #0E467A;
+}
+
+.my-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 5px;
+}
+
+
+.error {
+    color: red;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.navbar > .container-fluid > a > img {
+    height: 88px;
+    width: 70px;
+}
+
+#songlist li a {
+    font-size: larger;
+}
+
+#songlist > a {
+    font-size: small;
+}
+
+#song-details, #details-btns-container, .my-form {
+    margin-left: 15px;
+}
+
+.category {
+    font-weight: bold;
+}
+
+#edit-btns-container, #details-btns-container, #songlist-btns-container {
+    display: flex;
+    column-gap: 5px;
+}
+
+#songlist-btns-container {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+
