@@ -1,0 +1,16 @@
+<h1>Your songs</h1>
+<ul id="songlist">
+    <?php foreach ($songList as $s): ?>
+        <li><a href="view-song/<?=$s->song_id?>"> <?php echo $s->song_name ?> </a></li>
+        
+        <?php if (isLogged()): //si el usuario esta logueado muestra el boton?>
+            <a href="delete-song/<?= $s->song_id ?>"><button>Delete</button></a> 
+        <?php endif ?>
+    <?php endforeach ?>
+</ul>
+
+<?php if (isLogged()):?>
+    <div id="songlist-btns-container">    
+        <a href="add-song"><button>New Song</button></a>
+    </div>
+<?php endif ?>
