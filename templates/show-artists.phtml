@@ -1,21 +1,24 @@
-<?php require './templates/header.phtml'?>
+<?php require './templates/header.phtml' ?>
 <h2>Your artists</h2>
 <ul>
     <?php foreach ($artists as $a): ?>
-        <li> 
-            <a href="view-artist/<?= $a->artist_id ?>"> <?php echo $a->artist_name ?> </a> 
+        <li>
+            <a href="view-artist/<?= $a->artist_id ?>"> <?php echo $a->artist_name ?> </a>
         </li>
-
+        <?php if (isLogged()): ?>
             <form action="delete-artist/<?= $a->artist_id ?>" method="POST">
-                <button type="submit">Delete</button></a> 
+                <button type="submit">Delete</button>
             </form>
+            <?php endif; ?>
+            
+            <?php endforeach ?>
+        <?php if (isLogged()): ?>
+            <div>
+                <a href="add-artist/"><button>New Artist</button></a>
+            </div>
+        <?php endif; ?>
 
-    <?php endforeach ?>
 
-    <div>
-        <a href="add-artist/"><button>New Artist</button></a>
-    </div>
-    
     <!--<form action="add-artist" method="POST">
     <h2 >Add new artist</h2>
         <div>

@@ -1,7 +1,7 @@
 <?php require './templates/header.phtml'; ?>
 
 <div class="container mt-5">
-    <?php if (!empty($artistbyid) && is_object($artistbyid))  : ?>
+    <?php if (!empty($artistbyid) && is_object($artistbyid)) : ?>
         <div class="text-center mb-4">
             <h1><?= htmlspecialchars($artistbyid->artist_name); ?></h1>
             <img src="<?= htmlspecialchars($artistbyid->artist_img); ?>" alt="Imagen de <?= htmlspecialchars($artistbyid->artist_name); ?>" class="img-fluid">
@@ -13,11 +13,12 @@
                 <li class="list-group-item"><?= htmlspecialchars($song->song_name); ?></li>
             <?php endforeach; ?>
         </ul>
-
-        <div class="d-flex justify-content-between">
-            <a href="edit-artist/<?= $artistbyid->artist_id ?>" class="btn btn-warning">Edit</a>
+        <?php if (isLogged()): ?>
+            <div class="d-flex justify-content-between">
+                <a href="edit-artist/<?= $artistbyid->artist_id ?>" class="btn btn-warning">Edit</a>
+            </div>
+        <?php endif; ?>
             <a href="view-artists" class="btn btn-secondary">Back</a>
-        </div>
     <?php else: ?>
         <p class="text-center">No se encontraron detalles para este artista.</p>
     <?php endif; ?>

@@ -80,7 +80,7 @@ switch ($params[0]) {
         $controller->showArtistById($params[1]);
         break;
     case 'add-artist': //done
-        if (!isLogged()) {
+        if (isLogged()) {
             $controller = new ArtistsController();
             $controller->addArtist();
             break;}
@@ -90,7 +90,7 @@ switch ($params[0]) {
         }
         
     case 'delete-artist': //donde
-        if (!isLogged()) {
+        if (isLogged()) {
             $controller = new ArtistsController();
             $controller->deleteArtist($params[1]);
             break;}
@@ -99,7 +99,7 @@ switch ($params[0]) {
             break;
         }
     case 'edit-artist': //done
-        if (!isLogged()) {
+        if (isLogged()) {
             $controller = new ArtistsController();
             $artist_id = $params[1];
             $controller->editArtist($artist_id);
