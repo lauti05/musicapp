@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-10-2024 a las 04:19:54
+-- Tiempo de generación: 18-11-2024 a las 00:09:49
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -38,18 +38,18 @@ CREATE TABLE `artist` (
 --
 
 INSERT INTO `artist` (`artist_id`, `artist_name`, `artist_img`) VALUES
-(10, 'NAFTA', ''),
-(11, 'Daft Punk', ''),
-(12, 'Andres Calamaro', ''),
-(13, 'Sonic Youth', ''),
-(14, 'Roosvelt', ''),
-(15, 'Luis Alberto Spinetta', 'asdfsd'),
-(16, 'Charly García', ''),
-(17, 'Sumo', ''),
-(18, 'Los Piojos', ''),
-(19, 'Oasis', ''),
-(20, 'Radiohead', ''),
-(21, 'Conociendo Rusia', '');
+(10, 'NAFTA', 'https://123.news/files/image/218/218450/665901b0c7235_800_450!.jpg?s=128a5c6166bf9e3561d4bef3ba04391c&d=1719960732'),
+(11, 'Daft Punk', 'https://media.pitchfork.com/photos/6033c6098b8835d37316a598/2:1/w_2560%2Cc_limit/Daft-Punk.jpg'),
+(12, 'Andres Calamaro', 'https://media.airedesantafe.com.ar/p/10dd2cad2dcec2b9176d59306f68e8cd/adjuntos/268/imagenes/003/861/0003861995/1200x0/smart/andres-calamarojpg.jpg'),
+(13, 'Sonic Youth', 'https://beat.com.au/wp-content/uploads/2019/07/Sonic.png'),
+(14, 'Roosevelt', 'https://indiehoy.com/wp-content/uploads/2021/04/polydans.jpg'),
+(15, 'Luis Alberto Spinetta', 'https://static.nationalgeographicla.com/files/styles/image_3200/public/biosspinetta_fb1.jpg?w=1900&h=1197'),
+(16, 'Charly García', 'https://www.notaalpie.com.ar/wp-content/uploads/2021/10/2-2.jpg'),
+(17, 'Sumo', 'https://jazzrocksoul.com/wp-content/uploads/2018/01/Sumo.jpg'),
+(18, 'Los Piojos', 'https://infonegocios.info/content/images/2024/08/30/484498/los-piojos-1600x900.jpg'),
+(19, 'Oasis', 'https://surgfm.com/wp-content/uploads/2023/04/noel-and-liam-gallagher-scaled.jpg'),
+(20, 'Radiohead', 'https://bunny-wp-pullzone-cfq8jqyfsb.b-cdn.net/wp-content/uploads/2023/09/radiohead-band-members-1-1.jpeg'),
+(21, 'Conociendo Rusia', 'https://tupermitidodesiempre.com.ar/download/multimedia.normal.9c1fa00c136dfc43.RFNDMDgzMTRfbm9ybWFsLndlYnA%3D.webp');
 
 -- --------------------------------------------------------
 
@@ -73,7 +73,11 @@ INSERT INTO `song` (`song_id`, `artist_id`, `song_name`, `song_genre`, `song_yea
 (15, 13, 'Kool Thing', 'Alternative Rock', 1990),
 (17, 11, 'Instant Crush (feat. Julian Casablancas)', 'Electronic', 2013),
 (18, 11, 'Something About Us', 'Electronic', 2001),
-(26, 10, 'La Carta', 'Soul', 2019);
+(26, 10, 'La Carta', 'Soul', 2019),
+(30, 14, 'Shadows', 'New Wave', 2018),
+(31, 21, 'Heridas Dulces', 'Indie Rock', 2024),
+(32, 11, 'Giorgio by Moroder', 'Electronic', 2013),
+(33, 13, 'Sunday', 'Alternative Rock', 1998);
 
 -- --------------------------------------------------------
 
@@ -126,13 +130,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `artist`
 --
 ALTER TABLE `artist`
-  MODIFY `artist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `artist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `song`
 --
 ALTER TABLE `song`
-  MODIFY `song_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `song_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
